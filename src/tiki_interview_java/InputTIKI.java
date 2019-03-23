@@ -98,7 +98,7 @@ public class InputTIKI {
         }
         pInfo.setImageUrl(imageUrl);
 
-        System.out.print("Factory Date: ");
+        System.out.print("Factory Date (dd/mm/yyyy): ");
         pInfo.setFactoryDate((Date) c.loopInput(br, c.convertStringToDate(br.readLine()), "factory date"));
 
         System.out.print("Description: ");
@@ -143,6 +143,7 @@ public class InputTIKI {
     private void deleteProduct(BufferedReader br) throws Exception {
         menu5();
         int choice = c.choiceNumber(br, c.parseInt(br.readLine()), 3);
+        //remove all product
         if (choice == 3) {
             System.out.println("Are you sure you want to delete all? ");
             System.out.println("1. Yes  2. No");
@@ -150,9 +151,10 @@ public class InputTIKI {
             if (select == 1) {
                 pc.removeAllProduct();
             }
-        } else if (choice == 1) {
-            if (pc.printAllProduct()) {
+        } else if (choice == 1) { // remove product with index
+            if (pc.printAllProduct()) { // show all product first
                 System.out.println("Enter index number: ");
+                //then select which one you want to delete
                 int index = c.choiceNumber(br, c.parseInt(br.readLine()), pc.productSize());
                 if (pc.getProduct(index)) {
                     System.out.println("Are you sure you want to delete it? ");
@@ -168,10 +170,10 @@ public class InputTIKI {
             } else {
                 askForInsert(br, false);
             }
-        } else {
+        } else { //delete product by search name contain
             System.out.print("Enter product name: ");
             String name = br.readLine();
-            int isFound = pc.getProduct(name);
+            int isFound = pc.getProduct(name); // show all the product match with the keyword
             if (isFound == 1) {
                 System.out.println("Are you sure you want to delete them? ");
                 System.out.println("1. Yes  2. No");
