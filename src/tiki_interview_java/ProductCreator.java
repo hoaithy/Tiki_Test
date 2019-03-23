@@ -111,7 +111,7 @@ public class ProductCreator {
         }
         Product p = product.get(index - 1);
         ProductInfo[] pInfos = p.getProductInfo();
-        p.toStringDetail();
+        System.out.println(p.toStringDetail());
         System.out.printf("%-7s%-15s%-15s%-15s%-15s%-15s\n", "No.", "Color", "Storage", "Weight", "Factory Date", "Description");
         int i = 1;
         for (ProductInfo pInfo : pInfos) {

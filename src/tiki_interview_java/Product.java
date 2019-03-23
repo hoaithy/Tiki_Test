@@ -64,10 +64,10 @@ public class Product {
     }
     
     public String toString(int index) {
-        return String.format("%-7d%-30s$%-20.02f$%-20.02f",index,this.productName,this.salePrice,this.marketPrice);
+        return String.format("%-7d%-30s$%-19.02f$%-20.02f",index,this.productName,this.salePrice,this.marketPrice);
     }
     
     public String toStringDetail() {
-        return String.format("Product Name: %s\nSale Price%.02f\nMarket Price%.02f", this.productName,this.salePrice, this.marketPrice);
+        return String.format("Product Name: %-5s\nSale Price: $%-5.02f\nMarket Price: $%-5.02f\n", this.productName,this.salePrice, this.marketPrice);
     }
 }
