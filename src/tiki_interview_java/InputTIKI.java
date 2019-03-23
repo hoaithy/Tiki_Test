@@ -152,6 +152,7 @@ public class InputTIKI {
             }
         } else if (choice == 1) {
             if (pc.printAllProduct()) {
+                System.out.println("Enter index number: ");
                 int index = c.choiceNumber(br, c.parseInt(br.readLine()), pc.productSize());
                 if (pc.getProduct(index)) {
                     System.out.println("Are you sure you want to delete it? ");
@@ -188,7 +189,7 @@ public class InputTIKI {
     private void searchProduct(BufferedReader br) throws Exception {
         menu4();
         boolean isEmpty = true;
-        int choice = (int) c.loopInput(br, c.parseInt(br.readLine()), "numeric");
+        int choice = (int) c.choiceNumber(br, c.parseInt(br.readLine()), 2);
         if (choice == 1) {
             System.out.print("Enter index (1/2/3 ...): ");
             int index = (int) c.loopInput(br, c.parseInt(br.readLine()), "numeric");
@@ -233,7 +234,7 @@ public class InputTIKI {
 
     private void showProduct(BufferedReader br) throws Exception {
         System.out.println("Enter product you want to show detail: (1/2/3 ...)");
-        boolean isEmpty = pc.printDetailOfProductByIndex((int) c.loopInput(br, c.parseInt(br.readLine()), "numeric"));
+        boolean isEmpty = pc.printDetailOfProductByIndex((int) c.choiceNumber(br, c.parseInt(br.readLine()), pc.productSize()));
         askForInsert(br, isEmpty);
     }
 

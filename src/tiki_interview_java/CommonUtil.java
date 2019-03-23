@@ -93,8 +93,8 @@ public class CommonUtil {
     }
 
     public int choiceNumber(BufferedReader br, int choice, int maxChoice) throws Exception {
-        while (choice <= 0 && choice > maxChoice) {
-            System.out.println("Wrong format for numeric please enter again");
+        while (choice <= 0 || choice > maxChoice) {
+            System.out.println("Please enter number from 1 to " + maxChoice);
             choice = parseInt(br.readLine());
         }
         return choice;

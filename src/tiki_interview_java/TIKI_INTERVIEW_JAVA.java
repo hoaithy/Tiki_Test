@@ -5,8 +5,6 @@
  */
 package tiki_interview_java;
 
-import java.util.Date;
-
 /**
  *
  * @author User
@@ -21,13 +19,6 @@ public class TIKI_INTERVIEW_JAVA {
         InputTIKI tiki = new InputTIKI();
         tiki.init();
         tiki.action();
-//        CommonUtil c = new CommonUtil();
-//        System.out.println();
-//        System.out.println(c.convertStringToDate("02/01/0001").equals(c.convertStringToDate("01/22/2019")));
-    }
-    
-    public static void test(Object o) {
-        System.out.println(o.getClass().getSimpleName());
     }
     
 }
