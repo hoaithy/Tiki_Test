@@ -17,6 +17,7 @@ import java.util.Date;
  */
 public class CommonUtil {
 
+    //parse and validate string to double
     public Double parseDouble(String str) {
         try {
             return Double.parseDouble(str);
@@ -24,7 +25,7 @@ public class CommonUtil {
             return -1.0;
         }
     }
-
+    //parse and validate string to float
     public Float parseFloat(String str) {
         try {
             return Float.parseFloat(str);
@@ -32,7 +33,7 @@ public class CommonUtil {
             return (float) -1.0;
         }
     }
-
+    //parse and validate string to int
     public int parseInt(String str) {
         try {
             return Integer.parseInt(str);
@@ -41,8 +42,10 @@ public class CommonUtil {
         }
     }
 
+    //Validate that when user enter some incorrect input text/int/float ...
+    //They will automatically ask the user input again
     public Object loopInput(BufferedReader br, Object o, String field) throws Exception {
-        String dataType = o == null ? "Date": o.getClass().getSimpleName();
+        String dataType = o.getClass().getSimpleName();
         String message = "Wrong format for " + field + " please enter again";
         switch (dataType) {
             case "Integer":
@@ -68,6 +71,9 @@ public class CommonUtil {
                 return numFloat;
             case "Date":
                 Date date = (Date) o;
+                //compare with default date
+                //if input date same with default date
+                //the program will ask for input again
                 while (date.equals(convertStringToDate("01/01/0001"))) {
                     System.out.println(message);
                     date = convertStringToDate(br.readLine());
@@ -77,6 +83,8 @@ public class CommonUtil {
         return null;
     }
 
+    //Convert and validate String to Java date
+    //If format is wrong, it will return to default date to compare (validate)
     public Date convertStringToDate(String str) {
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         df.setLenient(false);
@@ -92,6 +100,9 @@ public class CommonUtil {
         return df.format(d);
     }
 
+    //When choice the number of menu
+    //some time user will input wrong index
+    //the method will automatically ask for do again
     public int choiceNumber(BufferedReader br, int choice, int maxChoice) throws Exception {
         while (choice <= 0 || choice > maxChoice) {
             System.out.println("Please enter number from 1 to " + maxChoice);

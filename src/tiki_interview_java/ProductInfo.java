@@ -81,7 +81,7 @@ public class ProductInfo {
     public void setImageUrl(String[] imageUrl){
         this.imageUrl = imageUrl;
     }
-    
+    //get the image with the index and avoid OutOfIndexException occur
     public String getSafeUrlImage(int index){
         if (index > imageUrl.length - 1|| index < 0) {
             return "";
@@ -89,7 +89,7 @@ public class ProductInfo {
             return imageUrl[index];
         }
     }
-    
+    //get productInfo with horizontal display
     public String toString(int index) {
         return String.format("%-7d%-15s%-15s%-15s%-15s%-15s\nImage 1: %s\nImage 2: %s\nImage 3: %s",index, 
                 this.color, this.storage + "GB",this.weight +"g",com.convertDateToString(this.factoryDate),this.description,
